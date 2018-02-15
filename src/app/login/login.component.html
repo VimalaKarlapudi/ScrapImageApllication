@@ -1,0 +1,28 @@
+<div class="container">
+ <div class="row">
+   <h1 style="text-align: center">Login</h1>
+    <div style="width: 30%; margin: 25px auto;">
+      <form action="/login" method="post" [formGroup]="myForm">
+        <div class="form-group">
+         <input class="form-control" type="text" name="username" id="username" placeholder="username" formControlName="username">
+         <span *ngIf="!username.valid && username.touched" class="alert alert-danger">
+             <span *ngIf="username.hasError('required')">Username cannot be empty</span>
+             <span *ngIf="username.hasError('minlength')">Plzz enter ur name</span> 
+         </span>
+        </div>
+        <div class="form-group">
+         <input class="form-control" type="password" name="password" name="password" placeholder="password" formControlName="password">
+         <span *ngIf="!password.valid && password.touched" class="alert alert-danger">
+            <span *ngIf="password.hasError('required')">password cannot be empty</span>
+            <span *ngIf="password.hasError('minlength')">Plzz enter ur password</span> 
+        </span>
+        </div>
+        <div class="form-group">
+         <button class="btn btn-lg btn-primary btn-block" (click)="addUser(myForm)">Login</button>
+        </div>
+      </form>
+      <a href="/campgrounds">Go Back</a>
+      <p>{{msg}}</p>
+    </div>
+  </div>
+</div>

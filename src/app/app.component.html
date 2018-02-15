@@ -1,7 +1,7 @@
-<ul class="nav nav-tabs">
-  <li><a [routerLink]="['/search']">Search</a></li>
-  <li><a [routerLink]="['/keywords']">Searched Words</a></li>
-</ul>
-<router-outlet>
-  
-</router-outlet>
+<div class="nav nav-tabs" id="menubar">
+  <li><a  [routerLink]="['/new']">Admin</a></li>
+  <li><a [routerLink]="['/login']">User</a></li> 
+</div>
+  <div>
+  <router-outlet></router-outlet>
+</div>

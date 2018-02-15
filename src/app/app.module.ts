@@ -1,40 +1,30 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
-import {Routes,RouterModule} from '@angular/router';
 import {HttpModule} from '@angular/http';
+import {Route,RouterModule} from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { KeywordComponent } from './keyword/keyword.component';
-import { KeywordsComponent } from './keywords/keywords.component';
-import { SerchImageComponent } from './serch-image/serch-image.component';
-import {KeywordService} from './services/keyword.service';
-import { ShowImagesComponent } from './show-images/show-images.component';
-import {SearchImageService} from './services/searchImage.service';
-import { DisplayImagesComponent } from './display-images/display-images.component';
+import { SignupComponent } from './signup/signup.component';
+import { LoginComponent } from './login/login.component';
+import { UserdataComponent } from './userdata/userdata.component';
+import {UserService} from './services/user.service';
 
-var myRoutes:Routes=[
-      {path:'keywords',component:KeywordsComponent,
-        children:[{path:'keyword/:word',component:KeywordComponent}]},
-      {path:'search',component:SerchImageComponent},
-      {path:'DisplayImage',component:DisplayImagesComponent}]
+const myRoutes:Route[]=[  
+  {path:'new',component:SignupComponent},
+  {path:'login',component:LoginComponent}
+  ]
 @NgModule({
   declarations: [
     AppComponent,
-    KeywordComponent,
-    KeywordsComponent,
-    SerchImageComponent,
-    ShowImagesComponent,
-    DisplayImagesComponent
+    SignupComponent,
+    LoginComponent,
+    UserdataComponent, 
   ],
   imports: [
-    BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
-    RouterModule.forRoot(myRoutes),
-    HttpModule
+    BrowserModule,FormsModule,ReactiveFormsModule,HttpModule,RouterModule.forRoot(myRoutes)
   ],
-  providers: [KeywordService,SearchImageService],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
